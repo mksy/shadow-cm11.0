@@ -19,13 +19,13 @@ persist.ril.modem.mode =1
 # This defines the max event window manager can
 # handle in 1 s. We may adjust this # for performance
 # reason later
-windowsmgr.max_events_per_sec=55
+windowsmgr.max_events_per_sec=70
 # This defines the min duration between two pointer event
 ro.min_pointer_dur=10
 
 # USB modes allowed for UI and switching
 ro.ngp_available=1
-ro.modem_available=0
+ro.modem_available=1
 
 # Default network type.
 # 4 => CDMA / EVDO.
@@ -35,7 +35,7 @@ ro.url.legal=http://www.google.com/intl/%s/mobile/android/basic/phone-legal.html
 ro.url.legal.android_privacy=http://www.google.com/intl/%s/mobile/android/basic/privacy.html
 ro.cdma.home.operator.numeric=310004
 ro.cdma.home.operator.alpha=Verizon
-ro.config.vc_call_vol_steps=7
+ro.config.vc_call_vol_steps=10
 
 # wlan interface
 wifi.interface = tiwlan0
@@ -43,7 +43,92 @@ wifi.interface = tiwlan0
 # Time between scans in seconds. Keep it high to minimize battery drain.
 # This only affects the case in which there are remembered access points,
 # but none are in range.
-wifi.supplicant_scan_interval = 90
+wifi.supplicant_scan_interval = 180
+
+# Power Save tweaks
+ro.ril.disable.power.collapse=1
+pm.sleep_mode=1
+
+# Increase Performance
+debug.performance.tuning=1
+
+# Video Acceleration Enabled
+video.accelerate.hw=1
+
+# Signal Tweaks
+ro.ril.hep=1
+ro.ril.enable.dtm=1
+ro.ril.hsdpa.category=10
+ro.ril.enable.a53=1
+ro.ril.enable.3g.prefix=1
+ro.ril.htcmaskw1.bitmask=4294967295
+ro.ril.htcmaskw1=14449
+ro.ril.hsupa.category=5
+ro.ril.hsxpa=3
+ro.ril.gprsclass=12
+
+# NetSpeed Tweaks
+#Define TCP buffer sizes for various networks
+#ReadMin, ReadInitial, ReadMax, WriteMin, WriteInitial, WriteMax,
+net.tcp.buffersize.default=6144,87380,110208,6144,16384,110208
+net.tcp.buffersize.wifi=262144,524288,1048576,262144,524288,1048576
+net.tcp.buffersize.lte=262144,524288,1048576,262144,524288,1048576
+net.tcp.buffersize.hsdpa=6144,262144,1048576,6144,262144,1048576
+net.tcp.buffersize.evdo_b=6144,262144,1048576,6144,262144,1048576
+net.tcp.buffersize.umts=6144,87380,110208,6144,16384,110208
+net.tcp.buffersize.hspa=6144,87380,262144,6144,16384,262144
+net.tcp.buffersize.gprs=6144,8760,11680,6144,8760,11680
+net.tcp.buffersize.edge=6144,26280,35040,6144,16384,35040
+
+# Google DNS Tweak
+net.rmnet0.dns1=8.8.8.8
+net.rmnet0.dns2=8.8.4.4
+net.dns1=8.8.8.8
+net.dns2=8.8.4.4
+
+# Photo And Video Quality
+ro.media.dec.jpeg.memcap=8000000
+ro.media.enc.hprof.vid.bps=8000000
+ro.media.enc.jpeg.quality=100
+
+# Scrolling Responsiveness
+#windowsmgr.max_events_per_sec=500
+windowsmgr.max_events_per_sec=150
+#ro.max.fling_velocity=12000
+#ro.min.fling_velocity=8000
+
+# Frees up more ram when needed
+#persist.sys.purgeable_assets=1
+
+# Disable Sending Usage Data
+ro.config.nocheckin=1
+
+# Increase VM Heap Size
+dalvik.vm.heapsize=96m
+# Enable detailed GC data and SMP dexopt
+# Force return function copy
+# dalvik.vm.jniopts=forcecopy
+# Check jni before executing
+# dalvik.vm.checkjni=false
+# Verify the bytecode before executing
+# dalvik.vm.verify-bytecode=false
+# Force JIT execution
+# dalvik.vm.execution-mode=int:jit
+# dalvik.vm.dexopt-flags=v=n,o=a,u=n,m=y
+
+#dalvik.vm.dexopt-data-only=1
+#dalvik.vm.heapstartsize=5m
+#dalvik.vm.lockprof.threshold=500
+dalvik.vm.dexopt-flags=m=y,u=n
+#dalvik.vm.dexopt-flags=m=v,o=y
+#dalvik.vm.dexopt-flags=m=y,u=n,o=y
+#dalvik.vm.stack-trace-file=/data/anr/traces.txt
+
+# Debug SurfaceFlinger Hardware
+debug.sf.hw=1
+
+# Disable kernel jni check
+ro.kernel.android.checkjni=0
 
 # Indicate carrier OTA SP number schema
 # refer to frameworks/base/telephony/java/com/android/
