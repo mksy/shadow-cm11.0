@@ -23,6 +23,7 @@
 # WARNING: This line must come *before* including the proprietary
 # variant, so that it gets overwritten by the parent (which goes
 # against the traditional rules of inheritance).
+
 USE_CAMERA_STUB := false
 #BOARD_USE_YUV422I_DEFAULT_COLORFORMAT := true
 
@@ -82,7 +83,7 @@ BOARD_KERNEL_CMDLINE := console=ttyS2,115200n8 rw mem=498M@0x80C00000 init=/init
 BOARD_KERNEL_BASE := 0x10000000
 
 BOARD_HAVE_BLUETOOTH := true
-BOARD_HAVE_BLUETOOTH_IT := true
+BOARD_HAVE_BLUETOOTH_TI := true
 
 BOARD_EGL_CFG := device/motorola/shadow/egl.cfg
 
