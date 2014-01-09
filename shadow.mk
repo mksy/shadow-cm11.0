@@ -99,20 +99,14 @@ PRODUCT_COPY_FILES += \
 
 PRODUCT_PACKAGES += \
     librs_jni \
-    tiwlan.ini \
     dspexec \
     libbridge \
     overlay.omap3 \
-    wlan_cu \
-    libtiOsLib \
-    wlan_loader \
-    libCustomWifi \
-    wpa_supplicant.conf \
-    dhcpcd.conf \
     libOMX.TI.AAC.encode \
     libOMX.TI.AMR.encode \
     libOMX.TI.WBAMR.encode \
     libOMX.TI.JPEG.Encoder \
+    libOMX.TI.JPEG.Decoder \
     libLCML \
     libOMX_Core \
     libOMX.TI.Video.Decoder \
@@ -124,6 +118,29 @@ PRODUCT_PACKAGES += \
     Usb \
     mot_boot_mode \
     charge_only_mode
+
+# Wifi
+PRODUCT_PACKAGES += \
+    lib_driver_cmd_wl12xx \
+    dhcpcd.conf \
+    hostapd.conf \
+    wpa_supplicant.conf \
+    TQS_D_1.7.ini \
+    TQS_D_1.7_127x.ini \
+    crda \
+    regulatory.bin \
+    calibrator 
+
+# wifi props
+#PRODUCT_PROPERTY_OVERRIDES += \
+    wifi.interface=wlan0 \
+    softap.interface=wlan0 \
+    wifi.supplicant_scan_interval=60 \
+
+# props for 512mb devices
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.config.low_ram=true \
+    dalvik.vm.jit.codecachesize=0 \
 
 # we have enough storage space to hold precise GC data
 PRODUCT_TAGS += dalvik.gc.type-precise
