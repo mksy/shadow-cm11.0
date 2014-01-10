@@ -88,8 +88,10 @@ BOARD_HAVE_BLUETOOTH_TI := true
 BOARD_EGL_CFG := device/motorola/shadow/egl.cfg
 
 BOARD_BOOTIMAGE_PARTITION_SIZE := 0x003fffff
-BOARD_RECOVERYIMAGE_PARTITION_SIZE := 0x004fffff
-BOARD_SYSTEMIMAGE_PARTITION_SIZE := 0x0bdfffff   # limited so we enforce room to grow
+#BOARD_RECOVERYIMAGE_PARTITION_SIZE := 0x004fffff
+BOARD_RECOVERYIMAGE_PARTITION_SIZE := 0x005fffff   # increase to bypass compile
+#BOARD_SYSTEMIMAGE_PARTITION_SIZE := 0x0bdfffff   # limited so we enforce room to grow
+BOARD_SYSTEMIMAGE_PARTITION_SIZE := 0x14dd0000   # increase to bypass compile
 BOARD_USERDATAIMAGE_PARTITION_SIZE := 0x105c0000
 BOARD_FLASH_BLOCK_SIZE := 131072
 
@@ -122,3 +124,4 @@ BOARD_ALWAYS_INSECURE := true
 BOARD_HAS_LARGE_FILESYSTEM := true
 BOARD_MKE2FS := device/motorola/shadow/mke2fs
 BOARD_HAS_SMALL_RECOVERY := true
+

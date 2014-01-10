@@ -88,7 +88,7 @@ write_int(char const* path, int value)
         return amt == -1 ? -errno : 0;
     } else {
         if (already_warned == 0) {
-            LOGE("write_int failed to open %s\n", path);
+            ALOGE("write_int failed to open %s\n", path);
             already_warned = 1;
         }
         return -errno;
@@ -194,7 +194,7 @@ set_light_battery(struct light_device_t* dev,
 
     colorRGB = state->color;
 #if 0
-    LOGD("set_light_battery colorRGB=%08X, onMS=%d, offMS=%d****************\n",
+    ALOGD("set_light_battery colorRGB=%08X, onMS=%d, offMS=%d****************\n",
             colorRGB, onMS, offMS);
 #endif
     err = write_int(CHARGING_LED_FILE, colorRGB ? 255 : 0);
@@ -257,7 +257,7 @@ set_light_notification(struct light_device_t* dev,
             break;
     }
 #if 0
-    LOGD("set_light_notification color=%08X, blink=%d****************\n",
+    ALOGD("set_light_notification color=%08X, blink=%d****************\n",
             state->color, blink);
 #endif
     err = set_light_locked(state->color, blink);
@@ -288,7 +288,7 @@ set_light_attention(struct light_device_t* dev,
             break;
     }
 
-    LOGD("set_light_attention color=%08X, blink=%d****************\n",
+    ALOGD("set_light_attention color=%08X, blink=%d****************\n",
             state->color, blink);
 
     err = set_light_locked(state->color, blink);
