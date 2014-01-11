@@ -180,7 +180,7 @@ PRODUCT_COPY_FILES += \
 $(call inherit-product-if-exists, vendor/motorola/shadow/shadow-vendor.mk)
 
 # stuff common to all Motorola phones
-$(call inherit-product, device/motorola/hijack/common_hijack.mk)
+#$(call inherit-product, device/motorola/hijack/common_hijack.mk)
 
 $(call inherit-product, build/target/product/full_base.mk)
 
