@@ -98,6 +98,15 @@ PRODUCT_COPY_FILES += \
     device/motorola/shadow/media_profiles.xml:system/etc/media_profiles.xml \
     device/motorola/shadow/media_codecs.xml:system/etc/media_codecs.xml
 
+# WLAN/WPAN firmware
+PRODUCT_COPY_FILES += \
+    device/motorola/shadow/prebuilt/etc/firmware/ti-connectivity/wl127x-fw-4-mr.bin:system/etc/firmware/ti-connectivity/wl127x-fw-4-mr.bin \
+    device/motorola/shadow/prebuilt/etc/firmware/ti-connectivity/wl127x-fw-4-plt.bin:system/etc/firmware/ti-connectivity/wl127x-fw-4-plt.bin \
+    device/motorola/shadow/prebuilt/etc/firmware/ti-connectivity/wl127x-fw-4-sr.bin:system/etc/firmware/ti-connectivity/wl127x-fw-4-sr.bin \
+    device/motorola/shadow/prebuilt/etc/firmware/TIInit_7.2.31.bts:system/etc/firmware/TIInit_7.2.31.bts \
+    device/motorola/shadow/prebuilt/etc/wifi/wpa_supplicant_overlay.conf:system/etc/wifi/wpa_supplicant_overlay.conf \
+    device/motorola/shadow/prebuilt/etc/wifi/p2p_supplicant_overlay.conf:system/etc/wifi/p2p_supplicant_overlay.conf
+
 PRODUCT_PACKAGES += \
     librs_jni \
     dspexec \
@@ -181,7 +190,7 @@ PRODUCT_COPY_FILES += \
 $(call inherit-product-if-exists, vendor/motorola/shadow/shadow-vendor.mk)
 
 # stuff common to all Motorola phones
-$(call inherit-product, device/motorola/hijack/common_hijack.mk)
+$(call inherit-product, device/motorola/common/common_hijack.mk)
 
 $(call inherit-product, build/target/product/full_base.mk)
 
